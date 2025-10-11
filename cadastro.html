@@ -131,5 +131,23 @@
       <div class="text-muted">&copy; 2025 ONG Esperança Viva</div>
     </div>
   </footer>
+
+  <script>
+    // Pequeno script para abrir/fechar menu mobile e gerenciar aria attributes
+    const hambBtn = document.getElementById('hambBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileClose = document.getElementById('mobileClose');
+    hambBtn.addEventListener('click', ()=>{
+      const expanded = hambBtn.getAttribute('aria-expanded') === 'true';
+      hambBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileNav.style.display = 'block';
+      mobileNav.setAttribute('aria-hidden','false');
+    });
+    mobileClose.addEventListener('click', ()=>{
+      mobileNav.style.display = 'none';
+      mobileNav.setAttribute('aria-hidden','true');
+      hambBtn.setAttribute('aria-expanded','false');
+    });
+  </script>
 </body>
 </html>
