@@ -16,19 +16,49 @@
           <img width="250" src="assets/imgs/ong-2.jpg" alt="Ação social em escola" loading="lazy">
         </picture>
         <div>
-          <h1 style="font-size:var(--type-2xl);margin:0">Projetos Sociais</h1>
+          <h1 style="font-size:var(--type-3xl);margin:0">Projetos Sociais</h1>
+          <div class="text-muted" style="font-size:var(--type-sm)">Transformando vidas por meio da solidariedade</div>
         </div>
       </div>
-      <nav class="nav">
-        <a href="index.html">Início</a>
-        <a href="projetos.html">Projetos Sociais</a>
-        <a href="cadastro.html">Cadastro</a>
+
+      <nav class="nav" aria-label="Menu principal">
+        <div class="nav-item"><a href="index.html">Início</a></div>
+        <div class="nav-item"><a href="projetos.html">Projetos Sociais</a></div>
+        <div class="nav-item">
+          <a href="cadastro.html">Cadastro</a>
+          <div class="dropdown" role="menu" aria-label="submenu cadastro">
+            <a href="cadastro.html">Voluntariado</a>
+            <a href="cadastro.html">Doações</a>
+          </div>
+        </div>
       </nav>
-      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" id="hambBtn2">
+
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" id="hambBtn">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
+
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="panel">
+      <div class="flex-between">
+        <div class="brand">
+          <picture>
+            <source srcset="assets/imgs/ong-2.jpg" media="(min-width:800px)">
+            <source srcset="assets/imgs/ong-2-small.jpg" media="(min-width:400px)">
+            <img width="250" src="assets/imgs/ong-2.jpg" alt="Ação social em escola" loading="lazy">
+          </picture>
+          <strong>Esperança Viva</strong>
+        </div>
+        <button id="mobileClose" aria-label="Fechar menu">X</button>
+      </div>
+      <nav style="margin-top:var(--space-3)">
+        <a href="index.html">Início</a>
+        <a href="projetos.html">Projetos Sociais</a>
+        <a href="cadastro.html">Cadastro</a>
+      </nav>
+    </div>
+  </div>
 
   <main class="container">
     <section style="padding:var(--space-4) 0">
@@ -78,11 +108,21 @@
   </footer>
 
   <script>
-    // Mobile menu (re-use logic)
-    const hamb2 = document.getElementById('hambBtn2');
-    if(hamb2){
-      hamb2.addEventListener('click', ()=> alert('Abra o menu mobile (implemente conforme index.html)'));
-    }
+    // Pequeno script para abrir/fechar menu mobile e gerenciar aria attributes
+    const hambBtn = document.getElementById('hambBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileClose = document.getElementById('mobileClose');
+    hambBtn.addEventListener('click', ()=>{
+      const expanded = hambBtn.getAttribute('aria-expanded') === 'true';
+      hambBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileNav.style.display = 'block';
+      mobileNav.setAttribute('aria-hidden','false');
+    });
+    mobileClose.addEventListener('click', ()=>{
+      mobileNav.style.display = 'none';
+      mobileNav.setAttribute('aria-hidden','true');
+      hambBtn.setAttribute('aria-expanded','false');
+    });
   </script>
 </body>
 </html>
