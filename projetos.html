@@ -2,37 +2,87 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Projetos Sociais - ONG Esperança Viva</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <header>
-    <h1>Projetos Sociais</h1>
-    <nav>
-      <a href="index.html">Início</a> |
-      <a href="projetos.html">Projetos Sociais</a> |
-      <a href="cadastro.html">Cadastro</a>
-    </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <picture>
+          <source srcset="assets/imgs/ong-2.jpg" media="(min-width:800px)">
+          <source srcset="assets/imgs/ong-2-small.jpg" media="(min-width:400px)">
+          <img width="250" src="assets/imgs/ong-2.jpg" alt="Ação social em escola" loading="lazy">
+        </picture>
+        <div>
+          <h1 style="font-size:var(--type-2xl);margin:0">Projetos Sociais</h1>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="projetos.html">Projetos Sociais</a>
+        <a href="cadastro.html">Cadastro</a>
+      </nav>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" id="hambBtn2">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <main>
-    <section>
+  <main class="container">
+    <section style="padding:var(--space-4) 0">
       <h2>Voluntariado</h2>
-      <p>Participe como voluntário em nossos projetos de educação, reciclagem e apoio comunitário. Seu tempo e dedicação podem mudar vidas!</p>
+      <p>Participe como voluntário em nossos projetos. Temos frentes para educação, apoio emergencial e geração de renda.</p>
     </section>
 
     <section>
       <h2>Como Doar</h2>
-      <p>Você pode ajudar de diversas formas:</p>
-      <ul>
-        <li>Doações financeiras (via PIX: contato@esperancaviva.org.br)</li>
-        <li>Doação de alimentos e roupas</li>
-        <li>Apadrinhamento de famílias em vulnerabilidade</li>
-      </ul>
+      <p>Doações financeiras via PIX, além de arrecadação de alimentos e roupas.</p>
+      <div class="grid" style="margin-top:var(--space-2)">
+        <div class="col-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Doação Financeira</h4>
+              <p class="card-meta">PIX: contato@esperancaviva.org.br</p>
+              <p><button class="btn btn-primary">Doar Agora</button></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Doação de Alimentos</h4>
+              <p class="card-meta">Aceitamos alimentos não perecíveis.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Apadrinhamento</h4>
+              <p class="card-meta">Apadrinhe uma família por mês.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 ONG Esperança Viva - Todos os direitos reservados.</p>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="flex-between">
+        <div>&copy; 2025 ONG Esperança Viva</div>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // Mobile menu (re-use logic)
+    const hamb2 = document.getElementById('hambBtn2');
+    if(hamb2){
+      hamb2.addEventListener('click', ()=> alert('Abra o menu mobile (implemente conforme index.html)'));
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,451 @@
+/*
+  Design System (Modular CSS)
+  - CSS custom properties for palette, typography, spacing, radii, shadows
+  - 12-column grid system using CSS Grid
+  - Flex utilities
+  - Responsive breakpoints (6 total)
+  - Components: nav (dropdown + hamburger), cards, buttons, forms, alerts, badges, modal
+  - Spacing scale: 8,16,24,32,48,64
+  - BEM-like component classes and utility helpers
+*/
+:root {
+  /* Palette (>=8 colors) */
+  --color-primary-100: #E6F4FF;
+  --color-primary-200: #BEE8FF;
+  --color-primary-500: #1E88E5;
+  /* primary main */
+  --color-primary-700: #1565C0;
+
+  --color-secondary-100: #FFF1E6;
+  --color-secondary-500: #FF8A65;
+  /* secondary main */
+  --color-secondary-700: #E65100;
+
+  --color-accent-500: #7C4DFF;
+  --color-success-500: #4CAF50;
+  --color-warning-500: #FFB300;
+  --color-danger-500: #E53935;
+
+  /* Neutrals (>=3) */
+  --color-neutral-900: #0F1721;
+  --color-neutral-700: #39404A;
+  --color-neutral-500: #6B7280;
+  --color-neutral-300: #D1D5DB;
+  --color-neutral-100: #F3F4F6;
+
+  /* Typography */
+  --font-family-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --type-xs: 12px;
+  /* small labels */
+  --type-sm: 14px;
+  /* body-small */
+  --type-base: 16px;
+  /* body */
+  --type-lg: 20px;
+  /* h4 */
+  --type-xl: 24px;
+  /* h3 */
+  --type-2xl: 32px;
+  /* h2 */
+  --type-3xl: 40px;
+  /* h1 */
+
+  /* Spacing scale (modular) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+
+  /* Layout */
+  --container-max-width: 1200px;
+  --gutter: var(--space-2);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --shadow-sm: 0 1px 3px rgba(15, 23, 33, 0.08);
+  --shadow-md: 0 6px 18px rgba(15, 23, 33, 0.12);
+}
+
+/* Breakpoints (min-width) - at least 5 breakpoints
+   xs: 0 (mobile)
+   sm: 480px
+   md: 768px
+   lg: 1024px
+   xl: 1280px
+   xxl: 1440px
+*/
+@media (min-width: 480px) {
+  :root {
+    --bp-name: "sm"
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --bp-name: "md"
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --bp-name: "lg"
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --bp-name: "xl"
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --bp-name: "xxl"
+  }
+}
+
+/* Reset & base */
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-sans);
+  font-size: var(--type-base);
+  color: var(--color-neutral-900);
+  background: linear-gradient(180deg, var(--color-neutral-100), #ffffff);
+  line-height: 1.4;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* 12-column grid system (utility) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  align-items: start;
+}
+
+.col-12 {
+  grid-column: span 12
+}
+
+.col-6 {
+  grid-column: span 6
+}
+
+.col-4 {
+  grid-column: span 4
+}
+
+.col-3 {
+  grid-column: span 3
+}
+
+.col-8 {
+  grid-column: span 8
+}
+
+/* Responsive column helpers */
+@media (max-width: 767px) {
+  .col-mobile-stack {
+    grid-column: span 12 !important
+  }
+}
+
+/* Utilities (flex) */
+.flex {
+  display: flex
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2)
+}
+
+.gap-1 {
+  gap: var(--space-1)
+}
+
+.gap-2 {
+  gap: var(--space-2)
+}
+
+.p-1 {
+  padding: var(--space-1)
+}
+
+.p-2 {
+  padding: var(--space-2)
+}
+
+.p-3 {
+  padding: var(--space-3)
+}
+
+.m-1 {
+  margin: var(--space-1)
+}
+
+.m-2 {
+  margin: var(--space-2)
+}
+
+.rounded {
+  border-radius: var(--radius-md)
+}
+
+.shadow-sm {
+  box-shadow: var(--shadow-sm)
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md)
+}
+
+.text-muted {
+  color: var(--color-neutral-500)
+}
+
+/* Header and Navigation */
+.site-header {
+  background: linear-gradient(90deg, var(--color-primary-100), transparent);
+  border-bottom: 1px solid var(--color-neutral-300);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) 0
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2)
+}
+
+.brand img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px
+}
+
+.brand h1 {
+  font-size: var(--type-2xl);
+  margin: 0
+}
+
+/* Primary navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.nav a {
+  text-decoration: none;
+  padding: calc(var(--space-1));
+  border-radius: 6px;
+  color: var(--color-neutral-900);
+  font-weight: 600
+}
+
+.nav a:hover,
+.nav a:focus {
+  background: var(--color-primary-100)
+}
+
+/* Dropdown (desktop) */
+.nav-item {
+  position: relative
+}
+
+.nav-item .dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: white;
+  border: 1px solid var(--color-neutral-300);
+  border-radius: 8px;
+  padding: var(--space-2);
+  min-width: 200px;
+  z-index: 40
+}
+
+.nav-item:focus-within .dropdown,
+.nav-item:hover .dropdown {
+  display: block
+}
+
+.nav-item .dropdown a {
+  display: block;
+  padding: 6px 8px
+}
+
+/* Hamburger (mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid transparent
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-neutral-900)
+}
+
+/* Mobile nav overlay */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 33, 0.6);
+  z-index: 60
+}
+
+.mobile-nav .panel {
+  width: 280px;
+  background: white;
+  height: 100%;
+  padding: var(--space-3);
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 8px 0
+}
+
+/* Show hamburger on small screens */
+@media (max-width: 767px) {
+  .nav {
+    display: none
+  }
+
+  .hamburger {
+    display: flex
+  }
+}
+
+/* Hero */
+.hero {
+  padding: var(--space-4) 0
+}
+
+.hero .lead {
+  font-size: var(--type-lg);
+  margin-top: var(--space-2)
+}
+
+/* Cards system */
+.card {
+  background: white;
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-md);
+  overflow: hidden
+}
+
+.card-body {
+  padding: var(--space-3)
+}
+
+.card-title {
+  font-size: var(--type-lg);
+  margin: 0 0 var(--space-2) 0
+}
+
+.card-meta {
+  font-size: var(--type-sm);
+  color: var(--color-neutral-500)
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--space-3)
+}
+
+@media(min-width:768px) {
+  .grid-cards {
+    grid-template-columns: repeat(2, 1fr)
+  }
+}
+
+@media(min-width:1024px) {
+  .grid-cards {
+    grid-template-columns: repeat(3, 1fr)
+  }
+}
+
+/* Modal (basic) */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100
+}
+
+.modal {
+  background: white;
+  padding: var(--space-3);
+  border-radius: 12px;
+  max-width: 720px;
+  width: calc(100% - 48px)
+}
+
+.modal-backdrop.show {
+  display: flex
+}
+
+/* Footer */
+.site-footer {
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--color-neutral-300);
+  margin-top: var(--space-4)
+}

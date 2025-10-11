@@ -2,80 +2,99 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Cadastro - ONG Esperança Viva</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <header>
-    <h1>Cadastro de Voluntário</h1>
-    <nav>
-      <a href="index.html">Início</a> |
-      <a href="projetos.html">Projetos Sociais</a> |
-      <a href="cadastro.html">Cadastro</a>
-    </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <picture>
+          <source srcset="assets/imgs/ong-2.jpg" media="(min-width:800px)">
+          <source srcset="assets/imgs/ong-2-small.jpg" media="(min-width:400px)">
+          <img width="250" src="assets/imgs/ong-2.jpg" alt="Ação social em escola" loading="lazy">
+        </picture>
+        <h1 style="font-size:var(--type-lg);margin:0">Cadastro de Voluntário</h1>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="projetos.html">Projetos Sociais</a>
+        <a href="cadastro.html">Cadastro</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <form action="#" method="post">
-      <fieldset>
+  <main class="container" style="padding:var(--space-4) 0">
+    <form action="#" method="post" novalidate>
+      <fieldset class="card p-3">
         <legend>Informações Pessoais</legend>
 
-        <label for="nome">Nome Completo:</label><br>
-        <input type="text" id="nome" name="nome" required><br><br>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
 
-        <label for="email">E-mail:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+          <div class="form-field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+          </div>
 
-        <label for="cpf">CPF:</label><br>
-        <input type="text" id="cpf" name="cpf" required
-          pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-          placeholder="000.000.000-00"><br><br>
+          <div class="form-field">
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00">
+          </div>
 
-        <label for="telefone">Telefone:</label><br>
-        <input type="tel" id="telefone" name="telefone" required
-          pattern="\(\d{2}\)\s\d{5}-\d{4}"
-          placeholder="(11) 91234-5678"><br><br>
+          <div class="form-field">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" required pattern="\(\d{2}\)\s\d{4,5}-\d{4}" placeholder="(11) 91234-5678">
+          </div>
 
-        <label for="data_nascimento">Data de Nascimento:</label><br>
-        <input type="date" id="data_nascimento" name="data_nascimento" required><br><br>
+          <div class="form-field">
+            <label for="data_nascimento">Data de Nascimento</label>
+            <input type="date" id="data_nascimento" name="data_nascimento" required>
+          </div>
+
+          <div class="form-field">
+            <label for="cep">CEP</label>
+            <input type="text" id="cep" name="cep" required pattern="\d{5}-\d{3}" placeholder="00000-000">
+          </div>
+
+          <div class="form-field">
+            <label for="endereco">Endereço</label>
+            <input type="text" id="endereco" name="endereco" required>
+          </div>
+
+          <div class="form-field">
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" name="cidade" required>
+          </div>
+
+          <div class="form-field">
+            <label for="estado">Estado</label>
+            <select id="estado" name="estado" required>
+              <option value="">Selecione</option>
+              <option value="SP">SP</option>
+              <option value="RJ">RJ</option>
+              <option value="MG">MG</option>
+              <option value="BA">BA</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-top:var(--space-3)" class="flex gap-2">
+          <button class="btn btn-primary" type="submit">Enviar Cadastro</button>
+          <button class="btn btn-ghost" type="reset">Limpar</button>
+        </div>
       </fieldset>
-
-      <fieldset>
-        <legend>Endereço</legend>
-
-        <label for="endereco">Endereço:</label><br>
-        <input type="text" id="endereco" name="endereco" required><br><br>
-
-        <label for="cep">CEP:</label><br>
-        <input type="text" id="cep" name="cep" required
-          pattern="\d{5}-\d{3}"
-          placeholder="00000-000"><br><br>
-
-        <label for="cidade">Cidade:</label><br>
-        <input type="text" id="cidade" name="cidade" required><br><br>
-
-        <label for="estado">Estado:</label><br>
-        <select id="estado" name="estado" required>
-          <option value="">Selecione</option>
-          <option value="SP">SP</option>
-          <option value="RJ">RJ</option>
-          <option value="MG">MG</option>
-          <option value="RS">RS</option>
-          <option value="BA">BA</option>
-          <option value="PR">PR</option>
-          <option value="SC">SC</option>
-          <option value="PE">PE</option>
-          <option value="CE">CE</option>
-          <option value="DF">DF</option>
-        </select><br><br>
-      </fieldset>
-
-      <button type="submit">Enviar Cadastro</button>
-      <button type="reset">Limpar</button>
     </form>
   </main>
 
-  <footer>
-    <p>&copy; 2025 ONG Esperança Viva - Todos os direitos reservados.</p>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="text-muted">&copy; 2025 ONG Esperança Viva</div>
+    </div>
   </footer>
 </body>
 </html>
