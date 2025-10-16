@@ -1,0 +1,40 @@
+export function projetosTemplate() {
+  return `
+    <section style="padding:var(--space-4) 0">
+      <h2>Voluntariado</h2>
+      <p>Participe como voluntário em nossos projetos. Temos frentes para educação, apoio emergencial e geração de renda.</p>
+    </section>
+
+    <section>
+      <h2>Como Doar</h2>
+      <p>Doações financeiras via PIX, além de arrecadação de alimentos e roupas.</p>
+      <div class="grid" style="margin-top:var(--space-2)">
+        <div class="col-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Doação Financeira</h4>
+              <p class="card-meta">PIX: contato@esperancaviva.org.br</p>
+              <p><button class="btn btn-primary">Doar Agora</button></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Doação de Alimentos</h4>
+              <p class="card-meta">Aceitamos alimentos não perecíveis.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Apadrinhamento</h4>
+              <p class="card-meta">Apadrinhe uma família por mês.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
