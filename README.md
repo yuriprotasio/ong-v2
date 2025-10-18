@@ -7,3 +7,5 @@ Após instalar siga as etapas:
 Clique direito no arquivo index.html ou index.min.html
 então Clique esquerdo em Open With Live Server
 ```
+
+Link do projeto no Github Pages: https://yuriprotasio.github.io/ong-v2/
