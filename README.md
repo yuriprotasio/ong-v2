@@ -4,6 +4,6 @@ Você vai precisar rodar o projeto em um servidor. Você pode usar a extensão L
 Após instalar siga as etapas:
 
 ```bash
-Clique direito no arquivo index.html
+Clique direito no arquivo index.html ou index.min.html
 então Clique esquerdo em Open With Live Server
 ```
